@@ -1,5 +1,11 @@
-from replit import clear
 import art
+import os
+
+def clear_output():
+  if os.name == 'nt':
+    os.system('cls')
+  else:
+    os.system('clear')
 
 def find_highest_bidder(bidding_record):
   highest_bid = 0
@@ -22,7 +28,7 @@ while not bidding_finished:
   price = int(input("What is your bid?: $"))
   bids[name] = price
   should_continue = input("Are there any other bidders? Type 'yes' or 'no':")
-  clear()
+  clear_output()
   if should_continue == "no":
     bidding_finished = True
     find_highest_bidder(bids)
